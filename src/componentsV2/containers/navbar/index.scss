@@ -1,0 +1,125 @@
+@import '../../../constants/baseColors';
+@import '../../../constants/styles/classes';
+
+#navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  .hamburguer-btn {
+    font-size: 40px;
+    cursor: pointer;
+  }
+
+  .show-post-form-btn {
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: background-color 0.5s ease;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.39);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    .username-mobile {
+      margin-left: 20px;
+    }
+  }
+
+  .sidenav {
+    // external position
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+
+    // hide when is not open
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    // internal
+    background-color: #111;
+    padding-top: 60px;
+
+    // username on desktop view
+    .username-desktop {
+      display: none;
+    }
+
+    a {
+      color: #818181;
+      display: block;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+      transition: 0.3s; // hover
+      i {
+        margin: auto 5px;
+      }
+
+      &:hover {
+        color: #f1f1f1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1160px) {
+  #navbar {
+    padding: 0;
+    margin: 15px 20px;
+
+    .sidenav {
+      background-color: $surface;
+      min-width: 100%; // avoid the collapse from mobie view
+      display: flex;
+      height: auto;
+      position: relative;
+      padding: 0;
+      box-sizing: border-box;
+      border-radius: 15px;
+
+      a {
+        color: $onPrimary;
+        padding: 15px 30px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0);
+
+        &:hover {
+          border-bottom: 1px solid white;
+        }
+      }
+
+      .log-off-btn {
+        margin-left: auto;
+      }
+
+      .username-desktop {
+        display: inline;
+      }
+    }
+
+    .show-post-form-btn,
+    .hamburguer-btn,
+    .sidenav .close-btn,
+    .username-mobile {
+      display: none;
+    }
+  }
+}
